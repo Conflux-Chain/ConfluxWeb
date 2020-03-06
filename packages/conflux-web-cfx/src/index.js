@@ -27,7 +27,6 @@ import SubscriptionsFactory from './factories/SubscriptionsFactory';
 import {ProviderResolver} from 'conflux-web-providers';
 import CfxModule from './Cfx.js';
 
-
 /**
  * Creates the TransactionSigner class
  *

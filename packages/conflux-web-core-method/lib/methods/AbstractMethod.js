@@ -15,7 +15,6 @@
     along with confluxWeb.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 import isFunction from 'lodash/isFunction';
 import isString from 'lodash/isString';
 import cloneDeep from 'lodash/cloneDeep';

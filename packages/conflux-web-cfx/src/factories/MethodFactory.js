@@ -15,7 +15,6 @@
     along with confluxWeb.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 import {
     AbstractMethodFactory,
     CallMethod,

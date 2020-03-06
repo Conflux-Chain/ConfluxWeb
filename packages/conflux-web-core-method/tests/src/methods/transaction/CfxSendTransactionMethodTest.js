@@ -267,7 +267,7 @@ describe('CfxSendTransactionMethodTest', () => {
             from: 0,
             gas: 1,
             gasPrice: 1,
-            nonce: 1,
+            nonce: 1
             // chainId: 0
         };
 
@@ -277,7 +277,7 @@ describe('CfxSendTransactionMethodTest', () => {
             from: 0,
             gas: 1,
             gasPrice: 1,
-            nonce: 1,
+            nonce: 1
             // chainId: 0
         };
 
@@ -342,7 +342,7 @@ describe('CfxSendTransactionMethodTest', () => {
             from: 0,
             gas: 1,
             gasPrice: 1,
-            nonce: false,
+            nonce: false
             // chainId: 1
         };
 
@@ -403,7 +403,7 @@ describe('CfxSendTransactionMethodTest', () => {
             from: 0,
             gas: 10,
             gasPrice: 1,
-            nonce: 1,
+            nonce: 1
             // chainId: 1
         };
 
@@ -463,7 +463,7 @@ describe('CfxSendTransactionMethodTest', () => {
             from: 0,
             gas: 1,
             gasPrice: 10,
-            nonce: 1,
+            nonce: 1
             // chainId: 1
         };
 
@@ -524,7 +524,7 @@ describe('CfxSendTransactionMethodTest', () => {
             from: 0,
             gas: 1,
             gasPrice: 10,
-            nonce: 1,
+            nonce: 1
             // chainId: 1
         };
 
