@@ -18,6 +18,7 @@
 import isString from 'lodash/isString';
 import isNumber from 'lodash/isNumber';
 import {SignTransactionMethod} from 'conflux-web-core-method';
+import deasync from 'deasync';
 
 export default class CfxSignTransactionMethod extends SignTransactionMethod {
     /**
@@ -51,6 +52,18 @@ export default class CfxSignTransactionMethod extends SignTransactionMethod {
      * @returns {Promise<Object|String>}
      */
     execute() {
+        if (!this.parameters[0].storageLimit) {
+            this.parameters[0]['storageLimit'] = 100000000;
+        }
+
+        if (!this.parameters[0].chainId) {
+            this.parameters[0]['chainId'] = 0;
+        }
+
+        if (!this.parameters[0].epochHeight) {
+            this.parameters[0].epochHeight = this.getEpochHeight();
+        }
+
         if (isString(this.parameters[1])) {
             const account = this.moduleInstance.accounts.wallet[this.parameters[1]];
             if (account) {
@@ -65,5 +78,19 @@ export default class CfxSignTransactionMethod extends SignTransactionMethod {
         }
 
         return super.execute();
+    }
+
+    getEpochHeight() {
+        let result;
+        let isReturn = false;
+        this.moduleInstance.currentProvider.send('cfx_epochNumber', []).then((epochNumber) => {
+            result = epochNumber;
+            isReturn = true;
+        });
+
+        while (!isReturn) {
+            deasync.runLoopOnce();
+        }
+        return result;
     }
 }

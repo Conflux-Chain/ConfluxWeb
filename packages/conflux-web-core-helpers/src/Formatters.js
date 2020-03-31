@@ -228,9 +228,20 @@ export const outputTransactionFormatter = (receipt) => {
     if (receipt.gasPrice) {
         receipt.gasPrice = outputBigNumberFormatter(receipt.gasPrice);
     }
+    if (receipt.storageLimit) {
+        receipt.storageLimit = outputBigNumberFormatter(receipt.storageLimit);
+    }
 
     if (receipt.value) {
         receipt.value = outputBigNumberFormatter(receipt.value);
+    }
+
+    if (receipt.chainId) {
+        receipt.chainId = Utils.hexToNumber(receipt.chainId);
+    }
+
+    if (receipt.epochHeight) {
+        receipt.epochHeight = Utils.hexToNumber(receipt.epochHeight);
     }
 
     receipt.nonce = Utils.hexToNumber(receipt.nonce);
