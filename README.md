@@ -1,5 +1,7 @@
 # conflux-web.js - Conflux JavaScript API
 
+# This project is no longer actively maintained, please move to [New JavaScript SDK](https://github.com/Conflux-Chain/js-conflux-sdk/).
+
 This is the Conflux [JavaScript API][docs]
 which connects to the [Generic JSON RPC](https://conflux-chain.github.io/conflux-doc/json-rpc/) spec.
 
