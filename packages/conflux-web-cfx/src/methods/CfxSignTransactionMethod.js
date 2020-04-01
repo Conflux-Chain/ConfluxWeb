@@ -52,15 +52,15 @@ export default class CfxSignTransactionMethod extends SignTransactionMethod {
      * @returns {Promise<Object|String>}
      */
     execute() {
-        if (this.parameters[0].storageLimit === undefined) {
+        if (!this.parameters[0].storageLimit && this.parameters[0].storageLimit !== 0) {
             this.parameters[0]['storageLimit'] = 100000000;
         }
 
-        if (this.parameters[0].chainId === undefined) {
+        if (!this.parameters[0].chainId && this.parameters[0].chainId !== 0) {
             this.parameters[0]['chainId'] = 0;
         }
 
-        if (this.parameters[0].epochHeight === undefined) {
+        if (!this.parameters[0].epochHeight && this.parameters[0].epochHeight !== 0) {
             this.parameters[0].epochHeight = this.getEpochHeight();
         }
 
