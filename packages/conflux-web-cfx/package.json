@@ -26,7 +26,7 @@
         "conflux-web-net": "0.1.15-alpha.0",
         "conflux-web-providers": "0.1.15-alpha.0",
         "conflux-web-utils": "0.1.15-alpha.0",
-        "confluxjs-transaction": "0.0.1-alpha.7",
+        "confluxjs-transaction": "0.0.2-alpha.1",
         "rxjs": "^6.4.0",
         "deasync": "0.1.19"
     },
