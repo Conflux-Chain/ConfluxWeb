@@ -52,15 +52,15 @@ export default class CfxSignTransactionMethod extends SignTransactionMethod {
      * @returns {Promise<Object|String>}
      */
     execute() {
-        if (!this.parameters[0].storageLimit) {
+        if (this.parameters[0].storageLimit === undefined) {
             this.parameters[0]['storageLimit'] = 100000000;
         }
 
-        if (!this.parameters[0].chainId) {
+        if (this.parameters[0].chainId === undefined) {
             this.parameters[0]['chainId'] = 0;
         }
 
-        if (!this.parameters[0].epochHeight) {
+        if (this.parameters[0].epochHeight === undefined) {
             this.parameters[0].epochHeight = this.getEpochHeight();
         }
 
@@ -80,6 +80,7 @@ export default class CfxSignTransactionMethod extends SignTransactionMethod {
         return super.execute();
     }
 
+    /* eslint no-unmodified-loop-condition: 0 */
     getEpochHeight() {
         let result;
         let isReturn = false;

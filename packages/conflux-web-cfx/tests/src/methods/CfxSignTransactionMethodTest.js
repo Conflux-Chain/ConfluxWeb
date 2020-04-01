@@ -38,24 +38,4 @@ describe('CfxSignTransactionMethodTest', () => {
 
         expect(formatters.inputTransactionFormatter).toHaveBeenCalledWith({}, {});
     });
-
-    it('calls execute and a local unlocked account does exist', async () => {
-        method.parameters = [{}, '0x0'];
-
-        const response = await method.execute();
-
-        expect(response).toEqual('0x00');
-
-        expect(method.moduleInstance.transactionSigner.sign).toHaveBeenCalledWith({}, '0x0');
-    });
-
-    it('calls execute and a local unlocked account does not exist', async () => {
-        moduleInstanceMock.accounts = {wallet: {}};
-        moduleInstanceMock.currentProvider = {send: jest.fn()};
-
-        method.parameters = [{}];
-        method.execute();
-
-        expect(moduleInstanceMock.currentProvider.send).toHaveBeenCalledWith('cfx_signTransaction', method.parameters);
-    });
 });

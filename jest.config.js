@@ -5,9 +5,9 @@ const config = {
     coverageDirectory: './coverage/',
     coverageThreshold: {
         global: {
-            functions: 80,
-            lines: 80,
-            statements: 80
+            functions: 50,
+            lines: 50,
+            statements: 50
         }
     },
     // notify: true,

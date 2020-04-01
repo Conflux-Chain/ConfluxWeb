@@ -129,20 +129,21 @@ export default class CfxSendTransactionMethod extends SendTransactionMethod {
         // }
 
         if (!this.parameters[0].nonce && this.parameters[0].nonce !== 0) {
-            this.getTransactionCountMethod.parameters = [this.parameters[0].from, 'latest_state'];
-
-            this.parameters[0].nonce = await this.getTransactionCountMethod.execute();
+            this.parameters[0].nonce = await this.moduleInstance.currentProvider.send('cfx_getNextNonce', [
+                this.parameters[0].from,
+                'latest_state'
+            ]);
         }
 
-        if (!this.parameters[0].storageLimit) {
+        if (!this.parameters[0].storageLimit === undefined) {
             this.parameters[0]['storageLimit'] = 100000000;
         }
 
-        if (!this.parameters[0].chainId) {
+        if (!this.parameters[0].chainId === undefined) {
             this.parameters[0]['chainId'] = 0;
         }
 
-        if (!this.parameters[0].epochHeight) {
+        if (!this.parameters[0].epochHeight === undefined) {
             this.parameters[0].epochHeight = await this.moduleInstance.currentProvider.send('cfx_epochNumber', []);
         }
 

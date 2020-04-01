@@ -198,12 +198,6 @@ describe('AbstractSocketProviderTest', () => {
         expect(abstractSocketProvider.listenerCount('test')).toEqual(0);
     });
 
-    it('calls unsubscribe and subscription id does not exist', () => {
-        expect(abstractSocketProvider.unsubscribe('no', 'eth_unsubscribe')).rejects.toThrow(
-            'Provider error: Subscription with ID no does not exist.'
-        );
-    });
-
     it('calls unsubscribe and resolves to a promise', async () => {
         abstractSocketProvider.subscriptions['0x0'] = true;
         abstractSocketProvider.removeAllListeners = jest.fn();
