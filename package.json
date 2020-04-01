@@ -16,6 +16,7 @@
         "remove:all": "lerna exec npm uninstall",
         "install:dev:all": "lerna exec npm install --save-dev",
         "publish": "npm run clean && npm run bootstrap && npm run travis && lerna publish --no-git-tag-version --no-push",
+        "publish:nocheck": "lerna publish --no-git-tag-version --no-push",
         "build": "lerna run build",
         "test": "lerna run test",
         "test:coverage": "lerna run test -- --coverage && npm run istanbulCombine",
